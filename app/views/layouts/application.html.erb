@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RubyDepDemo1</title>
+  <title>Ruby Belt Exam</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p><%= e %></p>
+  <% end %>
+<% end %>
 
+
+<% if current_user %>
+  <%= button_to 'Log Out', session_path("user_id"), :method => :delete %>
+<% end %>
 <%= yield %>
-
 </body>
 </html>
