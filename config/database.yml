@@ -17,8 +17,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: root
+  username: ubuntu
+  
+  # username: postgres
+  # password: root
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
@@ -83,5 +85,5 @@ test:
 production:
   <<: *default
   database: rubyDepDemo1_production
-  # username: rubyDepDemo1
-  # password: <%= ENV['RUBYDEPDEMO1_DATABASE_PASSWORD'] %>
+  username: rubyDepDemo1
+  password: <%= ENV['RUBYDEPDEMO1_DATABASE_PASSWORD'] %>
