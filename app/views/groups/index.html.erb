@@ -23,7 +23,7 @@
 
 <div id="right">
 <h1>Create a new organization</h1>
-<form action='<%= groups_path %>' method='post' class='box' id="login">
+<form action='<%= groups_path %>' method='post'  >
 	<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
 	<label>Org Name: <input type="text" name="group[name]"></label>
 	<label>Description: <textarea name="group[description]" ></textarea></label>

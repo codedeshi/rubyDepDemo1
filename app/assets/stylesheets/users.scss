@@ -145,7 +145,12 @@ textarea {
   width: 100%;
 }
 #left, #right {
-  width: 49%;
+  width: 48%;
   display: inline-block;
   vertical-align: top;
+}
+
+#right {
+  border-radius: 5px;
+  padding: 10px;
 }
