@@ -1,0 +1,33 @@
+<div id="header">
+	<%= link_to 'Log Out', session_path("user_id"), :method => :delete %>
+</div>
+
+<div id="mid">
+<div id="left">
+<h1>Hi <%= @user.fname %> <%= @user.lname %>!</h1>
+
+<h2>Here are the organizations you may join:</h2>
+<% if @groups%>
+	<% @groups.each do |group|%>
+			<p>
+				<% if group.user.id == session[:user_id] %>
+					<%= button_to 'X', group_path(:id => group.id), :method => :delete, :class => "x", :form_class => "x" %>
+				<%end%>
+				<a href="<%=group_path(group.id)%>">	<%= group.name%></a>
+			</p>
+			<p>Members: <%= group.meberships.count%></p>
+			<p>Description: <%= group.description%></p>
+	<%end%>
+<%end%>
+</div>
+
+<div id="right">
+<h1>Create a new organization</h1>
+<form action='<%= groups_path %>' method='post' class='box' id="login">
+	<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+	<label>Org Name: <input type="text" name="group[name]"></label>
+	<label>Description: <textarea name="group[description]" ></textarea></label>
+	<input class='green' type='submit' value='Submit'>
+</form>
+</div>
+</div>

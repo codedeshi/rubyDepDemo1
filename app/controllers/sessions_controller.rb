@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 		if user
 			if  user.authenticate(user_params[:password])
 				session[:user_id] = user.id 
-				redirect_to user_path(session[:user_id])
+				redirect_to groups_path
 			else
 				flash[:errors] = ["Invalid password"]
 				redirect_to :back
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session.clear
-		redirect_to "/main"
+		redirect_to root_path
 	end
 
 	private

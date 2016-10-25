@@ -1,0 +1,8 @@
+// Place your settings in this file to overwrite default and user settings.
+{	"editor.insertSpaces": false,
+	"editor.renderWhitespace": true,
+	"files.associations": {"*.ejs": "html"},
+	"editor.fontSize": 18,
+	"editor.wordWrap": true,
+	"editor.tabSize": 2
+}

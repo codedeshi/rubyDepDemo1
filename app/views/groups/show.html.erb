@@ -1,0 +1,33 @@
+<div id="header">
+	<a href="<%= groups_path %>">Dashboard</a>
+	<%= link_to 'Log Out', session_path("user_id"), :method => :delete %>
+</div>
+	<div id="mid">
+
+	<h1><%=@group.name%></h1>
+
+	<% if @members.include?(session[:user_id] ) %>
+		<%= button_to 'Leave group', mebership_path(:id => @group.id), :method => :delete, :class => "green"  %>
+		<% else %>
+			<form action='<%= meberships_path %>' method='post'>
+				<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+				<input type="hidden" name="id" value=<%=@group.id%>>
+				<input class="green" type='submit' value='Join Group' >
+			</form>
+	<%end%>
+	<p>Description: <%=@group.description%></p>
+
+	<h1>Create by</h1>
+		<% if @group.user.id == session[:user_id] %>
+			<p>YOU</p>
+		<% else %>
+		<p><%=@group.user.fname%></p>
+	<%end%>
+
+	<h1>Members</h1>
+
+	<% @group.meberships.each do |member|%>
+		<p><%= member.user.fname%></p>
+	<%end%>
+
+</div>

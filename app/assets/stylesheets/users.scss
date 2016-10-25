@@ -7,9 +7,9 @@
   padding: 0;
 }
 #header {
-  width: 100%;
+  max-width: 1200px;
 	overflow: hidden;
-	margin-top: 30px;
+	margin: 0 auto;  
 }
 #header h2 {
 	margin-top: 10px;
@@ -30,7 +30,7 @@
 } 
 
 #wrap {
-  width: 1200px;  
+  max-width: 1200px;  
   margin: auto auto;
   font-size: 1.5em;
 }
@@ -86,7 +86,7 @@ input, select {
   margin-left: 20px;
 }
 #mid {
-	width: 70%;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 
@@ -127,6 +127,25 @@ ul {
   margin-top: 30px;
 }
 
-h3 {
+h1, h2, h3 , p {
   margin-top: 20px;
+}
+
+#mid .x {
+  width: 30px;
+  display: inline;
+  border-radius: 20px;
+}
+
+p {
+  margin-left: 20px;
+}
+
+textarea {
+  width: 100%;
+}
+#left, #right {
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
 }
